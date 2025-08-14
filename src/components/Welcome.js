@@ -13,22 +13,25 @@ const Welcome = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasInitiallyFetched, setHasInitiallyFetched] = useState(false);
  
-  
-  // Only fetch user data once on mount
-  useEffect(() => {
+
+ useEffect(() => {
+  const loadData = async () => {
     if (!hasInitiallyFetched) {
-      fetchUserData();
       setHasInitiallyFetched(true);
-    }
-  }, [fetchUserData, hasInitiallyFetched]);
-  
-  useEffect(() => {
-    const loadData = async () => {
+
+      // Wait for user fetch
+      await fetchUserData();
+
+      // Wait for fonts to load
       await document.fonts.ready;
+
+      // Both are done now
       setIsLoading(false);
-    };
-    loadData();
-  }, []);
+    }
+  };
+
+  loadData();
+}, [fetchUserData, hasInitiallyFetched]);
   
   const notLoggedIn = "iNoteBook - Where Every Thought Finds Its Home. Start Your Journey!";
   const request = "Please Login or Signup To Continue";
