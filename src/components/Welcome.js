@@ -62,14 +62,14 @@ const Welcome = () => {
               key="welcome-text"
               text={notLoggedIn}
               variant="h3"
-              fontSize={{ xs: "2rem", sm: "3rem" }}
+              fontSize={{ xs: "2.5rem", sm: "3rem" }}
               isLoggedIn={isLoggedIn}
             />
             <AnimatedText
               key="request-text"
               text={request}
               variant="h6"
-              fontSize={{ xs: "1.2rem", sm: "1.5rem" }}
+              fontSize={{ xs: "1.3rem", sm: "1.5rem" }}
               isLoggedIn={isLoggedIn}
             />
           </Box>
@@ -88,7 +88,7 @@ const Welcome = () => {
               key={`greet-${user.name}`}
               text={greet}
               variant="h3"
-              fontSize={{ xs: "1.8rem", sm: "3rem" }}
+              fontSize={{ xs: "2.2rem", sm: "3rem" }}
             />
             <motion.div
                 initial={{ opacity: 0, scale: 0.3,y:60 }}
